@@ -11,12 +11,16 @@ namespace LabScript
         public AlertService(IJSRuntime ijsRuntime)
         {
             this.ijSObjectReference = new Lazy<Task<IJSObjectReference>>(()=>
-            ijsRuntime.InvokeAsync<IJSObjectReference>("import","").AsTask());
+            ijsRuntime.InvokeAsync<IJSObjectReference>("import","./content/LabScript/Pages/Home.razor.js").AsTask());
         }
 
-        public ValueTask DisposeAsync()
+        public async ValueTask DisposeAsync()
         {
-            
+            if(ijSObjectReference.IsValueCreated)
+            {
+                IJSObjectReference moduleJs = await ijSObjectReference.Value;
+                await moduleJs.DisposeAsync();
+            }
         }
 
         
