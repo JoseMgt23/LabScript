@@ -9,11 +9,18 @@ Welcome to your new app.
 
 <script>
     function jsFuncion {
-        alert("Hola mundo")
+    alert("Hola mundo")
     }
-    
+
 </script>
 
 @code {
     string test = "Emilio";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender){
+
+        }
+    }
 }
