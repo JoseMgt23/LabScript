@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using System.Diagnostics.Metrics;
 
 namespace LabScript
 {
@@ -23,6 +24,11 @@ namespace LabScript
             }
         }
 
-        
+        public async Task CallJsAlertFunction()
+        {
+            var jsModule = await ijSObjectReference.Value;
+
+            jsModule.InvokeVoidAsync("jsFuncion");
+        }        
     }
 }
