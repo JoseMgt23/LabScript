@@ -1,6 +1,7 @@
 ﻿@page "/"
 
 @inject IJSRuntime ijsruntime;
+@inject IAlertService alertService;
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, @test!</h1>
@@ -21,7 +22,8 @@ Welcome to your new app.
     {
         if(firstRender)
         {
-            await ijsruntime.InvokeVoidAsync("alerta", "prueba");
+            //await ijsruntime.InvokeVoidAsync("alerta", "prueba");
+            await alertService.CallJsAlertFuntion();
 
         }
     }
