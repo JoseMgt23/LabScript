@@ -19,7 +19,9 @@ Welcome to your new app.
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender){
+        if(firstRender)
+        {
+            await ijsruntime.InvokeVoidAsync("jsFuncion", null);
 
         }
     }
